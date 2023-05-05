@@ -26,6 +26,11 @@ public class EscapeNode : MonoBehaviour
         }
     }
 
+    public float TransitionTime = 12.0f;
+    private float curTime = 0;
+
+    public List<EscapeNode> connectedNode = new List<EscapeNode>();
+
     public GameObject FireParticle;
 
     public Direction NodeDirection
@@ -40,9 +45,21 @@ public class EscapeNode : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (!IsOnFire) return;
+
+        curTime += Time.deltaTime;
+
+        if (curTime > TransitionTime)
         {
-            IsOnFire = true;
+            TransitFire();
+        }
+    }
+
+    public void TransitFire()
+    {
+        foreach (var node in connectedNode)
+        {
+            node.IsOnFire = true;
         }
     }
 }

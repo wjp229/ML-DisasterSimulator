@@ -61,7 +61,6 @@ public class Escapee : MonoBehaviour
                 EscapeeDead();
             }
             
-            Debug.Log("Collide");
             transform.forward = other.transform.forward;
         }
     }

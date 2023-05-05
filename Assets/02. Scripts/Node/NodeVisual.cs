@@ -8,7 +8,7 @@ public class NodeVisual : MonoBehaviour
     private Material mat;
 
     public float speed = 3f;
-    
+
     // Start is called before the first frame update
     void Awake()
     {

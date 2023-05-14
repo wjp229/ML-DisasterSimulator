@@ -55,6 +55,11 @@ public class EscapeNode : MonoBehaviour
         }
     }
 
+    public void StartSimulation()
+    {
+        
+    }
+
     public void TransitFire()
     {
         foreach (var node in connectedNode)

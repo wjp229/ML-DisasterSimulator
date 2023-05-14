@@ -30,6 +30,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../MLAGENT\DisasterSimulator.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\wjp22\Desktop\MLAGENT" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.22f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\wjp22\Desktop\ML-DisasterSimulator -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -69,6 +77,9 @@
       <updated>1683170015161</updated>
       <workItem from="1683170021072" duration="1651000" />
       <workItem from="1683269569746" duration="4015000" />
+      <workItem from="1683298898083" duration="986000" />
+      <workItem from="1683444638997" duration="1592000" />
+      <workItem from="1683791495212" duration="1497000" />
     </task>
     <servers />
   </component>

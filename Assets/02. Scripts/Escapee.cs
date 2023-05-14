@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 public enum EscapeeState
 {
-    Active,
-    Damaged,
+    Moving,
+    Staying,
+    Following,
     Dead
 }
 
@@ -20,21 +22,46 @@ public class Escapee : MonoBehaviour
     public float maxSpeed = 15;
     public float minSpeed = 2;
 
-    private EscapeeState _state = EscapeeState.Active;
+    public EscapeeState _state = EscapeeState.Staying;
+
+    private float stayingTime = 4f;
+    public float minStayingTime = 1f;
+    public float maxStayingTime = 6f;
 
     private bool _isColliding;
+
+    private NavMeshAgent agent;
 
     public void Awake()
     {
         _speed = Random.Range(minSpeed, maxSpeed);
         _slowSpeed = Random.Range(minSpeed, maxSpeed / 2);
+
+        agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
     {
-        if (_state == EscapeeState.Dead)
-            return;
-        
+        switch (_state)
+        {
+            case EscapeeState.Moving:
+                Moving();
+                break;
+            case EscapeeState.Staying:
+                Staying();
+                break;
+            case EscapeeState.Following:
+                Following();
+                break;
+            case EscapeeState.Dead:
+                return;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private void Following()
+    {
         float curSpeed;
         
         if (_isColliding)
@@ -45,13 +72,45 @@ public class Escapee : MonoBehaviour
         {
             curSpeed = _speed;
         }
-
-        if (_state == EscapeeState.Damaged)
-            curSpeed /= 3f;
         
         transform.localPosition += transform.forward * curSpeed * Time.deltaTime;
     }
 
+    private float curStaytime = 0f;
+    private Vector3 newDestination;
+    private void Staying()
+    {
+        curStaytime += Time.deltaTime;
+        if (curStaytime > stayingTime)
+        {
+            curStaytime = 0f;
+            NavMeshPath path = new NavMeshPath();
+            do
+            {
+                // Find Next Destination
+                float newXValue = Random.Range(-20f, 20f);
+                float newZValue = Random.Range(-30f, 30f);
+
+                newDestination = new Vector3(newXValue, 0, newZValue);
+
+            } while (!agent.CalculatePath(newDestination, path));
+
+            _state = EscapeeState.Moving;
+            agent.destination = newDestination;
+        }
+
+    }
+
+    private float offset = 2f;
+    private void Moving()
+    {
+        if (Vector3.Distance(newDestination, transform.position) < offset + transform.position.y)
+        {
+            _state = EscapeeState.Staying;
+        }
+    }
+    
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Node"))

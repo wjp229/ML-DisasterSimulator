@@ -10,7 +10,8 @@ public enum EscapeeState
     Moving,
     Staying,
     Following,
-    Dead
+    Dead,
+    Escaped
 }
 
 public class Escapee : MonoBehaviour
@@ -32,12 +33,15 @@ public class Escapee : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    private GameObject CameraObj;
+
     public void Awake()
     {
         _speed = Random.Range(minSpeed, maxSpeed);
         _slowSpeed = _speed / 2f;
 
         agent = GetComponent<NavMeshAgent>();
+        CameraObj = GetComponentInChildren<Camera>().gameObject;
     }
 
     private void Update()
@@ -54,6 +58,8 @@ public class Escapee : MonoBehaviour
                 Following();
                 break;
             case EscapeeState.Dead:
+                return;
+            case EscapeeState.Escaped:
                 return;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -116,7 +122,13 @@ public class Escapee : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Node"))
         {
-            if (other.GetComponent<EscapeNode>().IsOnFire)
+            if (other.gameObject.GetComponent<ExitNode>())
+            {
+                Escaped();
+                return;
+            }
+            
+            if (other.GetComponent<RouteNode>().IsOnFire)
             {
                 EscapeeDead();
             }
@@ -134,6 +146,14 @@ public class Escapee : MonoBehaviour
     void EscapeeDead()
     {
         _state = EscapeeState.Dead;
+        MeshRenderer[] mrs = GetComponentsInChildren<MeshRenderer>();
+        foreach (var mr in mrs)
+        {
+            mr.material.color = Color.red;
+        }
+        SimulatorManager.Instance.EscapeeDead(this);
+        
+        Destroy(CameraObj);
     }
 
     private void OnCollisionStay(Collision collisionInfo)
@@ -150,5 +170,13 @@ public class Escapee : MonoBehaviour
         {
             _isColliding = false;
         }
+    }
+
+    private void Escaped()
+    {
+        _state = EscapeeState.Escaped;
+        SimulatorManager.Instance.EscapeeEscaped(this);
+        
+        Destroy(this);
     }
 }

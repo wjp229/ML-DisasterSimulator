@@ -9,6 +9,20 @@ using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 
+public struct ResultInfo
+{
+    public int InitEscapeeCnt;
+    
+    public float InitEscapeTime;
+    public float AvgEscapeTime;
+    public float TotalEscapeTime;
+    public float LastEscapeTime;
+
+    public int DeathCnt;
+    public int EscapedCnt;
+    public float DeathRate;
+}
+
 public class SimulatorManager : MonoBehaviour
 {
     public static SimulatorManager Instance;
@@ -16,11 +30,24 @@ public class SimulatorManager : MonoBehaviour
     public GameObject goEscapee;
 
     public List<Escapee> escapees = new List<Escapee>();
-    public List<EscapeNode> escapeNodes = new List<EscapeNode>();
+    public List<RouteNode> escapeNodes = new List<RouteNode>();
+
+    public List<ExitNode> exitNodes = new List<ExitNode>();
 
     public int escapeeNum = 0;
 
     public TMP_InputField escapeeText;
+
+    public Camera MainCam;
+
+    private ResultInfo _resultInfo;
+
+    private bool _simulationStarted = false;
+    public float SimulationTime = 0f;
+
+    public ResultUI resultUI;
+
+    public TextMeshProUGUI TimeText;
 
     private void Awake()
     {
@@ -34,13 +61,38 @@ public class SimulatorManager : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        if (_simulationStarted)
+        {
+            SimulationTime += Time.deltaTime;
+            TimeText.text = "Cur Time : " + SimulationTime.ToString("F1");
+        }
+    }
+
     public void StartSimulation()
     {
         int randomVal = Random.Range(0, escapeNodes.Count);
 
+        _simulationStarted = true;
+
+        _resultInfo.InitEscapeeCnt = escapees.Count;
+        _resultInfo.DeathCnt = 0;
+        _resultInfo.AvgEscapeTime = 0;
+
         foreach (var node in escapeNodes)
         {
             node.gameObject.SetActive(true);
+        }
+        
+        foreach (var node in exitNodes)
+        {
+            node.gameObject.SetActive(true);
+        }
+        
+        foreach (var node in escapeNodes)
+        {
+            node.SetConnectedNode();
         }
 
         escapeNodes[randomVal].IsOnFire = true;
@@ -66,13 +118,9 @@ public class SimulatorManager : MonoBehaviour
 
                 if (NavMesh.SamplePosition(randomPoint, out hit, 15.0f, NavMesh.AllAreas))
                 {
-                    Debug.Log("H" + hit.position);
                     finalPosition = hit.position;
                 }
-
-
-                Debug.Log(finalPosition);
-
+                
                 GameObject newEscapee =
                     Instantiate(goEscapee, finalPosition, Quaternion.identity);
 
@@ -112,6 +160,50 @@ public class SimulatorManager : MonoBehaviour
             {
                 AddEscapee(-1);
             }
+        }
+    }
+
+    public void EscapeeEscaped(Escapee escapee)
+    {
+        escapees.Remove(escapee);
+
+        _resultInfo.EscapedCnt += 1;
+        if (_resultInfo.EscapedCnt == 1)
+        {
+            _resultInfo.InitEscapeTime = SimulationTime;
+        }
+
+        _resultInfo.TotalEscapeTime += SimulationTime;
+        
+        _resultInfo.LastEscapeTime = SimulationTime;
+        _resultInfo.AvgEscapeTime = (_resultInfo.TotalEscapeTime / _resultInfo.EscapedCnt);
+        // Info Shard
+
+        
+        CheckSimulatorOver();
+    }
+
+    public void GetEscaepeeInfo()
+    {
+    }
+
+    public void EscapeeDead(Escapee escapee)
+    {
+        escapees.Remove(escapee);
+
+        _resultInfo.DeathCnt += 1;
+        _resultInfo.DeathRate = ((float)_resultInfo.DeathCnt / (float)_resultInfo.InitEscapeeCnt);
+        // Info Share
+        
+        CheckSimulatorOver();
+    }
+
+    public void CheckSimulatorOver()
+    {
+        if (escapees.Count <= 0)
+        {
+            resultUI.gameObject.SetActive(true);
+            resultUI.SetResult(_resultInfo);
         }
     }
 }

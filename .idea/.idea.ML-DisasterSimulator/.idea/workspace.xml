@@ -1,7 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2507bfb0-8c14-47f6-b4c1-1bb3f561fa59" name="Changes" comment="" />
+    <list default="true" id="2507bfb0-8c14-47f6-b4c1-1bb3f561fa59" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ML-DisasterSimulator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ML-DisasterSimulator/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01. Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01. Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/EscapeNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/EscapeNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/Escapee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/Escapee.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/Managers/SimulatorManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/Managers/SimulatorManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03. Prefabs/GO - Escapee.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03. Prefabs/GO - Escapee.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/DebrisParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire &amp; Explosion Effects/Materials/DebrisParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopPoolParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopPoolParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopSplashParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopSplashParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopSplatParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopSplatParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopStreamParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Goop Effects/Materials/GoopStreamParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/EarthCrack.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/EarthCrack.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/Embers.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/Embers.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/Fireball.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/Fireball.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/IceMist.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/IceMist.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/IceTrail.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/IceTrail.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/RockDust.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/RockDust.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/RockSpike.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Magic Effects/Materials/RockSpike.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Misc Effects/Materials/CandleFlame.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Misc Effects/Materials/CandleFlame.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Misc Effects/Materials/FireFlyTrail.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Misc Effects/Materials/FireFlyTrail.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Misc Effects/Materials/SmokePuff.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Misc Effects/Materials/SmokePuff.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/Dust.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/Dust.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/Embers.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/Embers.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/Flame01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/Flame01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/GroundFog.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/GroundFog.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/RockDebris.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/RockDebris.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SandParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SandParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/Smoke02.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/Smoke02.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SmokeLight.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SmokeLight.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SmokeySteam01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SmokeySteam01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SmokeySteam02.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SmokeySteam02.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SmokeySteam03.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/SmokeySteam03.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/Twinkle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/Twinkle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/wispySmoke.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Smoke &amp; Steam Effects/Materials/wispySmoke.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Water Effects/Materials/Splash.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Water Effects/Materials/Splash.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Water Effects/Materials/Water.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Water Effects/Materials/Water.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Water Effects/Materials/WaterDropSmall.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Water Effects/Materials/WaterDropSmall.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/BulletDecalMetal.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/BulletDecalMetal.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/BulletDecalSand.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/BulletDecalSand.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/BulletDecalStone.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/BulletDecalStone.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/BulletDecalWood.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/BulletDecalWood.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/BulletFleshDecal.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/BulletFleshDecal.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/DustPuffParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/DustPuffParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/GoopStreak.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/GoopStreak.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/MetalSparks.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/MetalSparks.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/MuzzleFlash01.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/MuzzleFlash01.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/WoodSplintersParticle.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UnityTechnologies/ParticlePack/EffectExamples/Weapon Effects/Materials/WoodSplintersParticle.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,15 +72,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "rider.run.widget.enabled.cache": "false",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../MLAGENT\DisasterSimulator.exe" />
@@ -39,7 +92,7 @@
       <method v="2" />
     </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.22f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\wjp22\Desktop\ML-DisasterSimulator -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\wjp22\Desktop\ML-DisasterSimulator" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -80,6 +133,7 @@
       <workItem from="1683298898083" duration="986000" />
       <workItem from="1683444638997" duration="1592000" />
       <workItem from="1683791495212" duration="1497000" />
+      <workItem from="1684059310730" duration="2466000" />
     </task>
     <servers />
   </component>

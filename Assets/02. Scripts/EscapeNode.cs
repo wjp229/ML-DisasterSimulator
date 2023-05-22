@@ -62,7 +62,9 @@ public class EscapeNode : MonoBehaviour
 
     public void TransitFire()
     {
-        foreach (var node in connectedNode)
+        if (connectedNode.Count <= 0) return;
+        
+            foreach (var node in connectedNode)
         {
             node.IsOnFire = true;
         }

@@ -35,7 +35,7 @@ public class Escapee : MonoBehaviour
     public void Awake()
     {
         _speed = Random.Range(minSpeed, maxSpeed);
-        _slowSpeed = Random.Range(minSpeed, maxSpeed / 2);
+        _slowSpeed = _speed / 2f;
 
         agent = GetComponent<NavMeshAgent>();
     }
@@ -63,6 +63,7 @@ public class Escapee : MonoBehaviour
     private void Following()
     {
         float curSpeed;
+        agent.speed = 0f;
         
         if (_isColliding)
         {
@@ -119,9 +120,15 @@ public class Escapee : MonoBehaviour
             {
                 EscapeeDead();
             }
-            
-            transform.forward = other.transform.forward;
+
+            StartCoroutine(TransferDirection(other, .3f));
         }
+    }
+
+    private IEnumerator TransferDirection(Collider other, float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        transform.forward = other.transform.forward;
     }
 
     void EscapeeDead()

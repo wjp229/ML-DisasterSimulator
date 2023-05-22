@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
+using Vector3 = UnityEngine.Vector3;
 
 public class SimulatorManager : MonoBehaviour
 {
@@ -54,18 +57,20 @@ public class SimulatorManager : MonoBehaviour
             for (int i = 0; i < addValue; i++)
             {
                 float radius = 30f;
-                
+
                 NavMeshHit hit;
                 Vector3 finalPosition = Vector3.zero;
-                
+
                 Vector3 randomPoint = Random.insideUnitSphere * radius;
-                
-                if (NavMesh.SamplePosition(randomPoint, out hit, 10.0f, NavMesh.AllAreas))
+
+
+                if (NavMesh.SamplePosition(randomPoint, out hit, 15.0f, NavMesh.AllAreas))
                 {
                     Debug.Log("H" + hit.position);
                     finalPosition = hit.position;
                 }
-                
+
+
                 Debug.Log(finalPosition);
 
                 GameObject newEscapee =

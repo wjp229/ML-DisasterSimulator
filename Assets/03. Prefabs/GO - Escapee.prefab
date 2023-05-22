@@ -134,8 +134,8 @@ MonoBehaviour:
   maxSpeed: 8
   minSpeed: 1
   _state: 1
-  minStayingTime: 1
-  maxStayingTime: 6
+  minStayingTime: 0.3
+  maxStayingTime: 2
 --- !u!195 &8664943578038758492
 NavMeshAgent:
   m_ObjectHideFlags: 0

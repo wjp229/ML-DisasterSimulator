@@ -41,7 +41,7 @@
       <method v="2" />
     </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.22f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.14f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\wjp22\Desktop\ML-DisasterSimulator -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\wjp22\Desktop\ML-DisasterSimulator" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -85,6 +85,8 @@
       <workItem from="1684059310730" duration="2466000" />
       <workItem from="1684730194729" duration="5815000" />
       <workItem from="1684736138598" duration="304000" />
+      <workItem from="1684820926538" duration="72000" />
+      <workItem from="1684821062052" duration="16000" />
     </task>
     <servers />
   </component>

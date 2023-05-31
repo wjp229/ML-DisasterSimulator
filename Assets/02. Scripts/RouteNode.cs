@@ -9,7 +9,8 @@ public enum Direction
     East = 0,
     South = 1,
     West = 2,
-    North = 3
+    North = 3,
+    Burned = 4
 }
 
 public class RouteNode : MonoBehaviour
@@ -23,6 +24,10 @@ public class RouteNode : MonoBehaviour
         set
         {
             isOnFire = value;
+            if (isOnFire)
+            {
+                nodeDirection = Direction.Burned;
+            }
             FireParticle.SetActive(value);
         }
     }
@@ -53,7 +58,6 @@ public class RouteNode : MonoBehaviour
 
     public void Update()
     {
-        
         for (int i = 0; i < 4; i++)
         {
             Debug.DrawRay(transform.position + Vector3.up*1.5f, GetForwardVector((Direction)i) * 2f, Color.red);
@@ -118,7 +122,7 @@ public class RouteNode : MonoBehaviour
     {
         if (connectedNode.Count <= 0) return;
         
-            foreach (var node in connectedNode)
+        foreach (var node in connectedNode)
         {
             node.IsOnFire = true;
         }

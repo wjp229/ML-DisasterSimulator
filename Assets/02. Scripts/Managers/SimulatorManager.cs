@@ -23,6 +23,7 @@ public struct ResultInfo
     public float DeathRate;
 }
 
+
 public class SimulatorManager : MonoBehaviour
 {
     public static SimulatorManager Instance;
@@ -183,8 +184,28 @@ public class SimulatorManager : MonoBehaviour
         CheckSimulatorOver();
     }
 
-    public void GetEscaepeeInfo()
+    public Vector3[] GetEscaepeeInfo()
     {
+        Vector3[] escapeeInfo = new Vector3[escapees.Count];
+
+        for (int i = 0; i < escapees.Count; i++)
+        {
+            escapeeInfo[i] = escapees[i].transform.position;
+        }
+
+        return escapeeInfo;
+    }
+
+    public int[] GetNodeStateInfo()
+    {
+        int[] nodeInfo = new int[escapeNodes.Count];
+
+        for (int i = 0; i < escapeNodes.Count; i++)
+        {
+            nodeInfo[i] = (int)(escapeNodes[i].NodeDirection);
+        }
+        
+        return nodeInfo;
     }
 
     public void EscapeeDead(Escapee escapee)

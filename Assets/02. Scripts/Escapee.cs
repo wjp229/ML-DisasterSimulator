@@ -95,8 +95,8 @@ public class Escapee : MonoBehaviour
             do
             {
                 // Find Next Destination
-                float newXValue = Random.Range(-20f, 20f);
-                float newZValue = Random.Range(-30f, 30f);
+                float newXValue = Random.Range(-45f, 45f);
+                float newZValue = Random.Range(-45f, 70f);
 
                 newDestination = new Vector3(newXValue, 0, newZValue);
 

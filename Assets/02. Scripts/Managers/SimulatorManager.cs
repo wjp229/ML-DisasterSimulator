@@ -109,7 +109,7 @@ public class SimulatorManager : MonoBehaviour
         {
             for (int i = 0; i < addValue; i++)
             {
-                float radius = 30f;
+                float radius = 45f;
 
                 NavMeshHit hit;
                 Vector3 finalPosition = Vector3.zero;

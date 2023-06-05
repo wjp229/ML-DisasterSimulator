@@ -50,6 +50,8 @@ public class SimulatorManager : MonoBehaviour
 
     public TextMeshProUGUI TimeText;
 
+    public bool IsSimulatorActive = true;
+
     private void Awake()
     {
         if (Instance == null)
@@ -64,6 +66,9 @@ public class SimulatorManager : MonoBehaviour
 
     public void Update()
     {
+        if (!IsSimulatorActive)
+            return;
+        
         if (_simulationStarted)
         {
             SimulationTime += Time.deltaTime;
@@ -109,13 +114,12 @@ public class SimulatorManager : MonoBehaviour
         {
             for (int i = 0; i < addValue; i++)
             {
-                float radius = 45f;
+                float radius = 30f;
 
                 NavMeshHit hit;
                 Vector3 finalPosition = Vector3.zero;
 
                 Vector3 randomPoint = Random.insideUnitSphere * radius;
-
 
                 if (NavMesh.SamplePosition(randomPoint, out hit, 15.0f, NavMesh.AllAreas))
                 {
@@ -221,10 +225,15 @@ public class SimulatorManager : MonoBehaviour
 
     public void CheckSimulatorOver()
     {
+        if (!IsSimulatorActive)
+            return;
+        
         if (escapees.Count <= 0)
         {
             resultUI.gameObject.SetActive(true);
             resultUI.SetResult(_resultInfo);
+
+            IsSimulatorActive = false;
         }
     }
 }

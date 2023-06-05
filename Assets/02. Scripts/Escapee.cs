@@ -35,6 +35,10 @@ public class Escapee : MonoBehaviour
 
     private GameObject CameraObj;
 
+    bool initFollowing = true;
+
+    private Vector3 CurrentDestination;
+
     public void Awake()
     {
         _speed = Random.Range(minSpeed, maxSpeed);
@@ -68,19 +72,33 @@ public class Escapee : MonoBehaviour
 
     private void Following()
     {
-        float curSpeed;
-        agent.speed = 0f;
-        
-        if (_isColliding)
+        if (initFollowing)
         {
-            curSpeed = _slowSpeed;
-        }
-        else
-        {
-            curSpeed = _speed;
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, 1 << LayerMask.NameToLayer("Node"));
+            Collider nearestCollider = null;
+            
+            float minSqrDistance = Mathf.Infinity;
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                float sqrDistanceToCenter = (transform.position - colliders[i].transform.position).sqrMagnitude;
+                if (sqrDistanceToCenter < minSqrDistance)
+                {
+                    minSqrDistance = sqrDistanceToCenter;
+                    nearestCollider = colliders[i];
+                }
+            }
+
+            CurrentDestination = nearestCollider.transform.position;
+            
+            initFollowing = false;
         }
         
-        transform.localPosition += transform.forward * curSpeed * Time.deltaTime;
+        agent.destination = CurrentDestination;
+    }
+
+    void MoveToNearNode()
+    {
+        
     }
 
     private float curStaytime = 0f;
@@ -131,16 +149,20 @@ public class Escapee : MonoBehaviour
             if (other.GetComponent<RouteNode>().IsOnFire)
             {
                 EscapeeDead();
+                return;
             }
 
-            StartCoroutine(TransferDirection(other, .3f));
+            StartCoroutine(TransferDirection(other , 0f));
         }
     }
 
     private IEnumerator TransferDirection(Collider other, float delayTime)
     {
-        yield return new WaitForSeconds(delayTime);
-        transform.forward = other.transform.forward;
+        yield return null;
+        
+        CurrentDestination = other.GetComponent<RouteNode>().GetTargetDestination();
+    
+        //transform.forward = other.transform.forward;
     }
 
     void EscapeeDead()
@@ -177,6 +199,8 @@ public class Escapee : MonoBehaviour
         _state = EscapeeState.Escaped;
         SimulatorManager.Instance.EscapeeEscaped(this);
         
+        Destroy(CameraObj);
+
         Destroy(this);
     }
 }

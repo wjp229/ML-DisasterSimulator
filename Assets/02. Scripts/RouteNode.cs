@@ -74,6 +74,22 @@ public class RouteNode : MonoBehaviour
         
     }
 
+    public Vector3 GetTargetDestination()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(transform.position + Vector3.up*1.5f, transform.forward);
+        
+        if (Physics.Raycast(transform.position + Vector3.up*1.5f, transform.forward, out hit))
+        {
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Node"))
+            {
+                return hit.transform.position;
+            }
+        }
+
+        return Vector3.zero;
+    }
+
     public void SetConnectedNode()
     {
         for (int i = 0; i < 4; i++)

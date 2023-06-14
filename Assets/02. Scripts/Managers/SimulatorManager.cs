@@ -188,6 +188,11 @@ public class SimulatorManager : MonoBehaviour
         CheckSimulatorOver();
     }
 
+    public void SetNodeDirection(int inNodeNum, Direction inNodeDirection)
+    {
+        escapeNodes[inNodeNum].NodeDirection = inNodeDirection;
+    }
+
     public Vector3[] GetEscaepeeInfo()
     {
         Vector3[] escapeeInfo = new Vector3[escapees.Count];

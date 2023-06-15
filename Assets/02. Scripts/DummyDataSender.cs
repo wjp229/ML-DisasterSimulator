@@ -11,7 +11,7 @@ public class DummyDataSender : MonoBehaviour
         {
             int ranVal = Random.Range(0, SimulatorManager.Instance.escapeNodes.Count);
             
-            SimulatorManager.Instance.escapeNodes[ranVal].NodeDirection = Direction.South;
+            SimulatorManager.Instance.escapeNodes[ranVal].ChangeNodeDirection = Direction.South;
         }
     }
 }

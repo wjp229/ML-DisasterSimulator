@@ -190,7 +190,7 @@ public class SimulatorManager : MonoBehaviour
 
     public void SetNodeDirection(int inNodeNum, Direction inNodeDirection)
     {
-        escapeNodes[inNodeNum].NodeDirection = inNodeDirection;
+        escapeNodes[inNodeNum].ChangeNodeDirection = inNodeDirection;
     }
 
     public Vector3[] GetEscaepeeInfo()
@@ -211,7 +211,7 @@ public class SimulatorManager : MonoBehaviour
 
         for (int i = 0; i < escapeNodes.Count; i++)
         {
-            nodeInfo[i] = (int)(escapeNodes[i].NodeDirection);
+            nodeInfo[i] = (int)(escapeNodes[i].ChangeNodeDirection);
         }
         
         return nodeInfo;

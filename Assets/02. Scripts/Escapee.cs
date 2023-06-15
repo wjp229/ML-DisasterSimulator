@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
+// 사람 관련 스크립트
+// EscapeState 정의
 public enum EscapeeState
 {
     Moving,
@@ -39,6 +41,7 @@ public class Escapee : MonoBehaviour
 
     private Vector3 CurrentDestination;
 
+    // Speed 초기화, NavMesh Agent, Camera 정의 
     public void Awake()
     {
         _speed = Random.Range(minSpeed, maxSpeed);
@@ -48,6 +51,7 @@ public class Escapee : MonoBehaviour
         CameraObj = GetComponentInChildren<Camera>().gameObject;
     }
 
+    // Node의 state에 따라서 함수 실행(Moving, Staying, Following)
     private void Update()
     {
         switch (_state)
@@ -70,6 +74,7 @@ public class Escapee : MonoBehaviour
         }
     }
 
+    // Node의 방향을 따라가게 하는 함수
     private void Following()
     {
         if (initFollowing)
@@ -100,9 +105,10 @@ public class Escapee : MonoBehaviour
     {
         
     }
-
+    
     private float curStaytime = 0f;
     private Vector3 newDestination;
+    //
     private void Staying()
     {
         curStaytime += Time.deltaTime;
@@ -127,6 +133,7 @@ public class Escapee : MonoBehaviour
     }
 
     private float offset = 2f;
+    
     private void Moving()
     {
         if (Vector3.Distance(newDestination, transform.position) < offset + transform.position.y)

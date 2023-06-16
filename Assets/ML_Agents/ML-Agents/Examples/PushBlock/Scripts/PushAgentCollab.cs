@@ -5,7 +5,6 @@ using Unity.MLAgents.Actuators;
 
 public class PushAgentCollab : Agent
 {
-
     private PushBlockSettings m_PushBlockSettings;
     private Rigidbody m_AgentRb;  //cached on initialization
 

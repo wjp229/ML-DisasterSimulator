@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.MLAgents;
-using Unity.MLAgents.Actuators;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
@@ -17,61 +15,8 @@ public enum Direction
     Burned = 4
 }
 
-public class RouteNode : Agent
+public class RouteNode : MonoBehaviour
 {
-    //노드의 방향 변수 정의
-    [SerializeField] private Direction nodeDirection;
-    
-    //SimulatorManager 정의
-    [SerializeField] private SimulatorManager m_simulatorManager; 
-    
-    // Initial direction
-    public Direction initDirection;
-    
-    public override void Initialize()
-    {
-        // SimulatorManager 컴포넌트 가져오기
-        m_simulatorManager = GetComponent<SimulatorManager>();
-        // 초기 방향 저장
-        initDirection = nodeDirection;
-    }
-    
-    // public override void OnActionReceived(float[] vectorAction)
-    // {
-    //     m_simulatorManager.;
-    //     if (Mathf.FloorToInt(vectorAction[0]) == 1) //분기가 1밖에 없기 때문
-    //         ChangeNodeDirection();
-    // }
-
-    public override void OnEpisodeBegin()
-    {
-        //환경 상태 초기화
-        nodeDirection = initDirection;
-    }
-
-    // public override void Heristic()
-    // {
-    //     
-    // }
-    
-    // 노드 방향 전환 Method
-    public Direction ChangeNodeDirection
-    {
-        get { return nodeDirection; }
-        set
-        {
-            nodeDirection = value;
-            transform.rotation = Quaternion.Euler(new Vector3(0, (int)nodeDirection * 90f, 0));
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        //노드에 불이 나지 않았을 때만 Action 결정 요청
-        if(!isOnFire)
-            RequestDecision();
-    }
-
     // 매 Frame 마다 화재 아닐 때는 사방에 Raycast 쏘기 및 화재일 때 쿨타임 차면 화재 전이
     public void Update()
     {
@@ -89,7 +34,6 @@ public class RouteNode : Agent
         {
             TransitFire();
         }
-        
     }
     
     //주변 노드 정의하기 위한 변수 정의
@@ -116,7 +60,6 @@ public class RouteNode : Agent
                 return hit.transform.position;
             }
         }
-
         return Vector3.zero;
     }
     
@@ -188,7 +131,7 @@ public class RouteNode : Agent
             if (isOnFire) // isOnFire==True
             {
                 // 노드의 상태를 Burned로 변경
-                nodeDirection = Direction.Burned;
+                //SimulatorManager.Instance.escapeNodes[] = Direction.Burned;
             }
             //화재 파티클 활성화
             FireParticle.SetActive(value);

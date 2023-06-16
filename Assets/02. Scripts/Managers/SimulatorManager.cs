@@ -5,6 +5,7 @@ using System.Numerics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
@@ -23,6 +24,10 @@ public struct ResultInfo
     public float DeathRate;
 }
 
+// public struct NodeInfo
+// {
+//     public Direction nodedirection;
+// }
 
 public class SimulatorManager : MonoBehaviour
 {
@@ -80,9 +85,11 @@ public class SimulatorManager : MonoBehaviour
     public void StartSimulation()
     {
         int randomVal = Random.Range(0, escapeNodes.Count);
-
+        for(int i=0;i<randomVal;i++)
+            initNodeDirection.Add(Direction.East);
+        
         _simulationStarted = true;
-
+        
         _resultInfo.InitEscapeeCnt = escapees.Count;
         _resultInfo.DeathCnt = 0;
         _resultInfo.AvgEscapeTime = 0;

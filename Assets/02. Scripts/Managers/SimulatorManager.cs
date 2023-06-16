@@ -34,7 +34,8 @@ public class SimulatorManager : MonoBehaviour
     public List<RouteNode> escapeNodes = new List<RouteNode>();
 
     public List<ExitNode> exitNodes = new List<ExitNode>();
-
+    public List<Direction> initNodeDirection = new List<Direction>();
+    
     public int escapeeNum = 0;
 
     public TMP_InputField escapeeText;

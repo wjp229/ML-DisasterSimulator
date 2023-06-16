@@ -21,14 +21,24 @@ public class RouteNode : Agent
 {
     //노드의 방향 변수 정의
     [SerializeField] private Direction nodeDirection;
-
+    
+    //SimulatorManager 정의
+    [SerializeField] private SimulatorManager m_simulatorManager; 
+    
+    // Initial direction
+    public Direction initDirection;
+    
     public override void Initialize()
     {
-        //
+        // SimulatorManager 컴포넌트 가져오기
+        m_simulatorManager = GetComponent<SimulatorManager>();
+        // 초기 방향 저장
+        initDirection = nodeDirection;
     }
     
     // public override void OnActionReceived(float[] vectorAction)
     // {
+    //     m_simulatorManager.;
     //     if (Mathf.FloorToInt(vectorAction[0]) == 1) //분기가 1밖에 없기 때문
     //         ChangeNodeDirection();
     // }
@@ -36,8 +46,13 @@ public class RouteNode : Agent
     public override void OnEpisodeBegin()
     {
         //환경 상태 초기화
-        
+        nodeDirection = initDirection;
     }
+
+    // public override void Heristic()
+    // {
+    //     
+    // }
     
     // 노드 방향 전환 Method
     public Direction ChangeNodeDirection

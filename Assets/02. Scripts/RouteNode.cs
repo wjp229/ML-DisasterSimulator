@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEditor;
 using UnityEngine;
 
@@ -29,11 +30,12 @@ public class RouteNode : MonoBehaviour
                 nodeDirection = RNDirection.Burned;
             }
             FireParticle.SetActive(value);
+            if(value) FireParticle.GetComponent<ParticleSystem>().Play();
         }
     }
 
     public float TransitionTime = 12.0f;
-    private float curTime = 0;
+    public float curTime = 0;
 
     public List<RouteNode> connectedNode = new List<RouteNode>();
 
@@ -49,6 +51,14 @@ public class RouteNode : MonoBehaviour
             nodeDirection = value;
             transform.rotation = Quaternion.Euler(new Vector3(0, (int)nodeDirection * 90f, 0));
         }
+    }
+
+    public void ResetNodeState()
+    {
+        IsOnFire = false;
+        nodeDirection = RNDirection.East;
+        FireParticle.SetActive(false);
+        curTime = 0;
     }
 
     private void OnEnable()
@@ -71,7 +81,6 @@ public class RouteNode : MonoBehaviour
         {
             TransitFire();
         }
-        
     }
 
     public Vector3 GetTargetDestination()
@@ -123,12 +132,7 @@ public class RouteNode : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(directionValue), directionValue, null);
         }
     }
-
-    public void StartSimulation()
-    {
-        
-    }
-
+    
     public void OnDirectionChange(RNDirection InNodeDirection)
     {
         NodeDirection = InNodeDirection;

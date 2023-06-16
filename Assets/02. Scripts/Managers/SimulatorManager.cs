@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using Quaternion = UnityEngine.Quaternion;
@@ -26,8 +27,6 @@ public struct ResultInfo
 
 public class SimulatorManager : MonoBehaviour
 {
-    public static SimulatorManager Instance;
-
     public GameObject goEscapee;
 
     public List<Escapee> escapees = new List<Escapee>();
@@ -52,32 +51,52 @@ public class SimulatorManager : MonoBehaviour
 
     public bool IsSimulatorActive = true;
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
+    public SimulatorAgent simulatorAgent;
 
     public void Update()
     {
         if (!IsSimulatorActive)
             return;
+     
+        simulatorAgent.AddReward(-0.01f);
         
         if (_simulationStarted)
         {
             SimulationTime += Time.deltaTime;
             TimeText.text = "Cur Time : " + SimulationTime.ToString("F1");
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            StartSimulation(true);
+        }
     }
 
-    public void StartSimulation()
+    public void StartSimulation(bool StartAutomatic)
     {
+        // Remove All Escapees
+        int escaepeeNum = escapees.Count;
+        for (int i = 0; i < escaepeeNum; i++)
+        {
+            GameObject go = escapees[0].gameObject;
+            escapees.RemoveAt(0);
+            
+            DestroyImmediate(go);
+        }
+
+        if (StartAutomatic)
+        {
+            int rValue = 30;// = Random.Range(0, 10);
+            
+            AddEscapee(rValue);
+        }
+        
+        // Reset All NodeStates
+        for (int i = 0; i < escapeNodes.Count; i++)
+        {
+            escapeNodes[i].ResetNodeState();
+        }
+
         int randomVal = Random.Range(0, escapeNodes.Count);
 
         _simulationStarted = true;
@@ -110,6 +129,7 @@ public class SimulatorManager : MonoBehaviour
 
     public void AddEscapee(int addValue = 1)
     {
+        Vector3 pivotPos = transform.position;
         if (addValue > 0)
         {
             for (int i = 0; i < addValue; i++)
@@ -121,14 +141,14 @@ public class SimulatorManager : MonoBehaviour
 
                 Vector3 randomPoint = Random.insideUnitSphere * radius;
 
-                if (NavMesh.SamplePosition(randomPoint, out hit, 15.0f, NavMesh.AllAreas))
+                if (NavMesh.SamplePosition(pivotPos + randomPoint, out hit, 15.0f, NavMesh.AllAreas))
                 {
                     finalPosition = hit.position;
                 }
                 
                 GameObject newEscapee =
-                    Instantiate(goEscapee, finalPosition, Quaternion.identity);
-
+                    Instantiate(goEscapee, finalPosition, Quaternion.identity, transform.parent);
+                
                 escapees.Add(newEscapee.GetComponent<Escapee>());
                 escapeeNum++;
             }
@@ -184,6 +204,7 @@ public class SimulatorManager : MonoBehaviour
         _resultInfo.AvgEscapeTime = (_resultInfo.TotalEscapeTime / _resultInfo.EscapedCnt);
         // Info Shard
 
+        simulatorAgent.AddReward(50f);
         
         CheckSimulatorOver();
     }
@@ -193,13 +214,13 @@ public class SimulatorManager : MonoBehaviour
         escapeNodes[inNodeNum].NodeDirection = inNodeDirection;
     }
 
-    public Vector3[] GetEscaepeeInfo()
+    public Vector3[] GetEscaepeePosition()
     {
         Vector3[] escapeeInfo = new Vector3[escapees.Count];
 
         for (int i = 0; i < escapees.Count; i++)
         {
-            escapeeInfo[i] = escapees[i].transform.position;
+            escapeeInfo[i] = escapees[i].transform.localPosition;
         }
 
         return escapeeInfo;
@@ -225,7 +246,11 @@ public class SimulatorManager : MonoBehaviour
         _resultInfo.DeathRate = ((float)_resultInfo.DeathCnt / (float)_resultInfo.InitEscapeeCnt);
         // Info Share
         
+        simulatorAgent.AddReward(-50f);
+        
         CheckSimulatorOver();
+        
+        Destroy(escapee.gameObject, 3f);
     }
 
     public void CheckSimulatorOver()
@@ -239,6 +264,10 @@ public class SimulatorManager : MonoBehaviour
             resultUI.SetResult(_resultInfo);
 
             IsSimulatorActive = false;
+            
+            simulatorAgent.AddReward(10f);
+            
+            simulatorAgent.EndEpisode();
         }
     }
 }

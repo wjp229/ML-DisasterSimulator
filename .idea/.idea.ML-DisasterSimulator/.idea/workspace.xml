@@ -3,12 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="2507bfb0-8c14-47f6-b4c1-1bb3f561fa59" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ML-DisasterSimulator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ML-DisasterSimulator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/DummyDataSender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/DummyDataSender.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01. Scenes/MainScene_MLAgents.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01. Scenes/MainScene_MLAgents.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/CameraUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/CameraUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/DummyDataSender.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/DummyDataSender.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/Escapee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/Escapee.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/Managers/SimulatorManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/Managers/SimulatorManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/RouteNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/RouteNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ML-Agents/Timers/PushBlock_timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ML-Agents/Timers/PushBlock_timers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +19,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/ec/5cdb4f50/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02. Scripts/Escapee.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/02. Scripts/LearningSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02. Scripts/Managers/SimulatorManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02. Scripts/Node/NodeVisual.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/02. Scripts/SimulatorAgent.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -98,7 +104,8 @@
       <workItem from="1685937489384" duration="2958000" />
       <workItem from="1686484813946" duration="514000" />
       <workItem from="1686704830060" duration="723000" />
-      <workItem from="1686881469294" duration="984000" />
+      <workItem from="1686881469294" duration="9722000" />
+      <workItem from="1686903825342" duration="1254000" />
     </task>
     <servers />
   </component>

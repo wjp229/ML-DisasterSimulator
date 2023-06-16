@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.PlayerLoop;
 using Random = UnityEngine.Random;
 
 public enum EscapeeState
@@ -39,6 +40,9 @@ public class Escapee : MonoBehaviour
 
     private Vector3 CurrentDestination;
 
+    private SimulatorManager _simulatorManager;
+    private SimulatorAgent _simulatorAgent;
+
     public void Awake()
     {
         _speed = Random.Range(minSpeed, maxSpeed);
@@ -46,6 +50,9 @@ public class Escapee : MonoBehaviour
 
         agent = GetComponent<NavMeshAgent>();
         CameraObj = GetComponentInChildren<Camera>().gameObject;
+
+        _simulatorManager = GetComponentInParent<LearningSet>().simulatorManager;
+        _simulatorAgent = transform.parent.GetComponentInChildren<SimulatorAgent>();
     }
 
     private void Update()
@@ -152,6 +159,7 @@ public class Escapee : MonoBehaviour
                 return;
             }
 
+            _simulatorAgent.AddReward(-0.5f);
             StartCoroutine(TransferDirection(other , 0f));
         }
     }
@@ -173,7 +181,7 @@ public class Escapee : MonoBehaviour
         {
             mr.material.color = Color.red;
         }
-        SimulatorManager.Instance.EscapeeDead(this);
+        _simulatorManager.EscapeeDead(this);
         
         Destroy(CameraObj);
     }
@@ -182,6 +190,7 @@ public class Escapee : MonoBehaviour
     {
         if (collisionInfo.gameObject.layer == LayerMask.NameToLayer("Escapee"))
         {
+            _simulatorAgent.AddReward(-0.3f);
             _isColliding = true;
         }
     }
@@ -197,10 +206,8 @@ public class Escapee : MonoBehaviour
     private void Escaped()
     {
         _state = EscapeeState.Escaped;
-        SimulatorManager.Instance.EscapeeEscaped(this);
+        _simulatorManager.EscapeeEscaped(this);
         
-        Destroy(CameraObj);
-
-        Destroy(this);
+        Destroy(gameObject);
     }
 }

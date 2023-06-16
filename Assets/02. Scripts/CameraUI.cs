@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CameraUI : MonoBehaviour
 {
+ 
+    public SimulatorManager simulatorManager;
     public void ToggleCameraButton(bool param)
     {
         if (param)
         {
-            SimulatorManager.Instance.MainCam.depth = -3;
+            simulatorManager.MainCam.depth = -3;
         }
         else
         {
-            SimulatorManager.Instance.MainCam.depth = -1;
+            simulatorManager.MainCam.depth = -1;
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public enum Direction
+public enum RNDirection
 {
     East = 0,
     South = 1,
@@ -15,7 +15,7 @@ public enum Direction
 
 public class RouteNode : MonoBehaviour
 {
-    private Direction nodeDirection;
+    private RNDirection nodeDirection;
 
     private bool isOnFire = false;
     public bool IsOnFire
@@ -26,7 +26,7 @@ public class RouteNode : MonoBehaviour
             isOnFire = value;
             if (isOnFire)
             {
-                nodeDirection = Direction.Burned;
+                nodeDirection = RNDirection.Burned;
             }
             FireParticle.SetActive(value);
         }
@@ -41,7 +41,7 @@ public class RouteNode : MonoBehaviour
 
     public GameObject FireParticle;
 
-    public Direction NodeDirection
+    public RNDirection NodeDirection
     {
         get { return nodeDirection; }
         set
@@ -60,7 +60,7 @@ public class RouteNode : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            Debug.DrawRay(transform.position + Vector3.up*1.5f, GetForwardVector((Direction)i) * 2f, Color.red);
+            Debug.DrawRay(transform.position + Vector3.up*1.5f, GetForwardVector((RNDirection)i) * 2f, Color.red);
         }
         
         if (!IsOnFire) return;
@@ -95,9 +95,9 @@ public class RouteNode : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             RaycastHit hit;
-            Ray ray = new Ray(transform.position + Vector3.up*1.5f, GetForwardVector((Direction)i));
+            Ray ray = new Ray(transform.position + Vector3.up*1.5f, GetForwardVector((RNDirection)i));
 
-            if (Physics.Raycast(transform.position + Vector3.up*1.5f, GetForwardVector((Direction)i), out hit))
+            if (Physics.Raycast(transform.position + Vector3.up*1.5f, GetForwardVector((RNDirection)i), out hit))
             {
                 if (hit.transform.GetComponent<RouteNode>())
                 {
@@ -107,17 +107,17 @@ public class RouteNode : MonoBehaviour
         }
     }
 
-    Vector3 GetForwardVector(Direction directionValue)
+    Vector3 GetForwardVector(RNDirection directionValue)
     {
         switch (directionValue)
         {
-            case Direction.East:
+            case RNDirection.East:
                 return Vector3.forward;
-            case Direction.South:
+            case RNDirection.South:
                 return Vector3.right;
-            case Direction.West:
+            case RNDirection.West:
                 return Vector3.back;
-            case Direction.North:
+            case RNDirection.North:
                 return Vector3.left;
             default:
                 throw new ArgumentOutOfRangeException(nameof(directionValue), directionValue, null);
@@ -129,7 +129,7 @@ public class RouteNode : MonoBehaviour
         
     }
 
-    public void OnDirectionChange(Direction InNodeDirection)
+    public void OnDirectionChange(RNDirection InNodeDirection)
     {
         NodeDirection = InNodeDirection;
     }

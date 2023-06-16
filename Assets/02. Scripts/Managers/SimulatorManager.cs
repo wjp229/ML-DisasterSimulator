@@ -188,7 +188,7 @@ public class SimulatorManager : MonoBehaviour
         CheckSimulatorOver();
     }
 
-    public void SetNodeDirection(int inNodeNum, Direction inNodeDirection)
+    public void SetNodeDirection(int inNodeNum, RNDirection inNodeDirection)
     {
         escapeNodes[inNodeNum].NodeDirection = inNodeDirection;
     }

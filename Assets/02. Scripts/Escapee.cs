@@ -16,7 +16,7 @@ public enum EscapeeState
 
 public class Escapee : MonoBehaviour
 {
-    private Direction progressDirection;
+    private RNDirection progressDirection;
 
     private float _speed;
     private float _slowSpeed;

@@ -12,7 +12,7 @@ public class FPSCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 rot = transform.localRotation.eulerAngels;
+        Vector3 rot = this.transform.eulerAngles;
         rotY = rot.y;
         rotX = rot.x;
     }

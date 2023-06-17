@@ -99,12 +99,29 @@ public class Escapee : MonoBehaviour
             
             initFollowing = false;
         }
-        
-       if(CurrentDestination == Vector3.zero) 
-            agent.destination = CurrentDestination;
+
+       if (CurrentDestination == Vector3.zero)
+       {
+           Collider[] colliders = Physics.OverlapSphere(transform.position, 20f, 1 << LayerMask.NameToLayer("Node"));
+           Collider nearestCollider = null;
+            
+           float minSqrDistance = Mathf.Infinity;
+           for (int i = 0; i < colliders.Length; i++)
+           {
+               float sqrDistanceToCenter = (transform.position - colliders[i].transform.position).sqrMagnitude;
+               if (sqrDistanceToCenter < minSqrDistance)
+               {
+                   minSqrDistance = sqrDistanceToCenter;
+                   nearestCollider = colliders[i];
+               }
+           }
+
+           CurrentDestination = nearestCollider.transform.position;
+       }
        else
        {
-           agent.destination = transform.position;
+           agent.destination = CurrentDestination;
+
        }
     }
 

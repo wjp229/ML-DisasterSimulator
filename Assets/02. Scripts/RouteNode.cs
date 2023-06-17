@@ -92,7 +92,7 @@ public class RouteNode : MonoBehaviour
 
         int nodeLayer = 1 << LayerMask.NameToLayer("Node");
         
-        if (Physics.Raycast(transform.position + Vector3.up*1.5f, transform.forward, out hit, 100f ,nodeLayer))
+        if (Physics.Raycast(transform.position + Vector3.up*1.5f, transform.forward, out hit, 5f ,nodeLayer))
         {
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Node"))
             {

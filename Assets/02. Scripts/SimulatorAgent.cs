@@ -28,7 +28,7 @@ public class SimulatorAgent : Agent
     {
         for (int i = 0; i < 10; i++)
         {
-            if (simulatorManager.escapees[i] == null)
+            if (i >= simulatorManager.escapees.Count)
             {
                 sensor.AddObservation(-1);
                 sensor.AddObservation(-1);

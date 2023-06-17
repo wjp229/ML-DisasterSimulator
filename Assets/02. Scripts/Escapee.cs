@@ -38,7 +38,7 @@ public class Escapee : MonoBehaviour
 
     bool initFollowing = true;
 
-    private Vector3 CurrentDestination;
+    public Vector3 CurrentDestination;
 
     private SimulatorManager _simulatorManager;
     private SimulatorAgent _simulatorAgent;
@@ -100,7 +100,12 @@ public class Escapee : MonoBehaviour
             initFollowing = false;
         }
         
-        agent.destination = CurrentDestination;
+       if(CurrentDestination == Vector3.zero) 
+            agent.destination = CurrentDestination;
+       else
+       {
+           agent.destination = transform.position;
+       }
     }
 
     void MoveToNearNode()
@@ -152,15 +157,34 @@ public class Escapee : MonoBehaviour
                 Escaped();
                 return;
             }
-            
-            if (other.GetComponent<RouteNode>().IsOnFire)
-            {
-                EscapeeDead();
-                return;
-            }
 
             _simulatorAgent.AddReward(-0.5f);
-            StartCoroutine(TransferDirection(other , 0f));
+           // StartCoroutine(TransferDirection(other , 0f));
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Node"))
+        {
+            if (other.GetComponent<RouteNode>())
+            {
+                if (other.GetComponent<RouteNode>().IsOnFire)
+                {
+                    GetComponent<CapsuleCollider>().enabled = false;
+
+                    EscapeeDead();
+                }
+                
+                CurrentDestination = other.GetComponent<RouteNode>().GetTargetDestination();
+                
+                
+            }
+            else
+            {
+                CurrentDestination = other.transform.position;
+            }
+
         }
     }
 
@@ -177,10 +201,12 @@ public class Escapee : MonoBehaviour
     {
         _state = EscapeeState.Dead;
         MeshRenderer[] mrs = GetComponentsInChildren<MeshRenderer>();
+        
         foreach (var mr in mrs)
         {
             mr.material.color = Color.red;
         }
+        
         _simulatorManager.EscapeeDead(this);
         
         Destroy(CameraObj);

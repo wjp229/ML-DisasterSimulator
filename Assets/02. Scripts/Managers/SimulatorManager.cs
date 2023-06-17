@@ -74,6 +74,8 @@ public class SimulatorManager : MonoBehaviour
 
     public void StartSimulation(bool StartAutomatic)
     {
+        IsSimulatorActive = true;
+        
         // Remove All Escapees
         int escaepeeNum = escapees.Count;
         for (int i = 0; i < escaepeeNum; i++)
@@ -86,7 +88,7 @@ public class SimulatorManager : MonoBehaviour
 
         if (StartAutomatic)
         {
-            int rValue = 30;// = Random.Range(0, 10);
+            int rValue = 10;// = Random.Range(0, 10);
             
             AddEscapee(rValue);
         }
@@ -137,7 +139,7 @@ public class SimulatorManager : MonoBehaviour
                 float radius = 30f;
 
                 NavMeshHit hit;
-                Vector3 finalPosition = Vector3.zero;
+                Vector3 finalPosition = pivotPos;
 
                 Vector3 randomPoint = Random.insideUnitSphere * radius;
 
@@ -260,12 +262,14 @@ public class SimulatorManager : MonoBehaviour
         
         if (escapees.Count <= 0)
         {
-            resultUI.gameObject.SetActive(true);
-            resultUI.SetResult(_resultInfo);
+            // resultUI.gameObject.SetActive(true);
+            // resultUI.SetResult(_resultInfo);
 
             IsSimulatorActive = false;
             
             simulatorAgent.AddReward(10f);
+            
+            Debug.Log("End Episode");
             
             simulatorAgent.EndEpisode();
         }

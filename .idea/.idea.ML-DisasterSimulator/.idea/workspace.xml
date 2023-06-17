@@ -4,14 +4,14 @@
     <list default="true" id="2507bfb0-8c14-47f6-b4c1-1bb3f561fa59" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ML-DisasterSimulator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ML-DisasterSimulator/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/01. Scenes/MainScene_MLAgents.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01. Scenes/MainScene_MLAgents.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/CameraUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/CameraUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/DummyDataSender.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/DummyDataSender.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01. Scenes/MainScene_MLAgents/NavMesh.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01. Scenes/MainScene_MLAgents/NavMesh.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/Escapee.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/Escapee.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/Managers/SimulatorManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/Managers/SimulatorManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/RouteNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/RouteNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ML-Agents/Timers/PushBlock_timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ML-Agents/Timers/PushBlock_timers.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/SimulatorAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/SimulatorAgent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/03. Prefabs/Learning Set.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03. Prefabs/Learning Set.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ML-Agents/Timers/MainScene_MLAgents_timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ML-Agents/Timers/MainScene_MLAgents_timers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +105,7 @@
       <workItem from="1686484813946" duration="514000" />
       <workItem from="1686704830060" duration="723000" />
       <workItem from="1686881469294" duration="9722000" />
-      <workItem from="1686903825342" duration="1254000" />
+      <workItem from="1686903825342" duration="5391000" />
     </task>
     <servers />
   </component>

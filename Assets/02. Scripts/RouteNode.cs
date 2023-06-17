@@ -76,6 +76,8 @@ public class RouteNode : MonoBehaviour
         if (!IsOnFire) return;
 
         curTime += Time.deltaTime;
+        
+        
 
         if (curTime > TransitionTime)
         {
@@ -87,16 +89,23 @@ public class RouteNode : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = new Ray(transform.position + Vector3.up*1.5f, transform.forward);
+
+        int nodeLayer = 1 << LayerMask.NameToLayer("Node");
         
-        if (Physics.Raycast(transform.position + Vector3.up*1.5f, transform.forward, out hit))
+        if (Physics.Raycast(transform.position + Vector3.up*1.5f, transform.forward, out hit, 100f ,nodeLayer))
         {
             if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Node"))
             {
+                FacingNode = hit.transform.GetComponent<RouteNode>();
                 return hit.transform.position;
             }
+            
+            Debug.Log(hit.transform.name);
+            
+            return Vector3.zero;
         }
-
         return Vector3.zero;
+
     }
 
     public void SetConnectedNode()

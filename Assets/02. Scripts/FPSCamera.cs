@@ -20,15 +20,18 @@ public class FPSCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = -Input.GetAxis("Mouse Y");
+        if (Input.GetMouseButton(0))
+        {
+            float mouseX = Input.GetAxis("Mouse X");
+            float mouseY = -Input.GetAxis("Mouse Y");
 
-        rotY += mouseX * Time.deltaTime * mouseSensivility;
-        rotX += mouseY * Time.deltaTime * mouseSensivility;
+            rotY += mouseX * Time.deltaTime * mouseSensivility;
+            rotX += mouseY * Time.deltaTime * mouseSensivility;
 
-        rotX = Mathf.Clamp(rotX, -rotXLimit, rotXLimit);
+            rotX = Mathf.Clamp(rotX, -rotXLimit, rotXLimit);
 
-        Quaternion mouseRot = Quaternion.Euler(rotX, rotY, 0);
-        transform.localRotation = mouseRot;
+            Quaternion mouseRot = Quaternion.Euler(rotX, rotY, 0);
+            transform.localRotation = mouseRot;
+        }
     }
 }

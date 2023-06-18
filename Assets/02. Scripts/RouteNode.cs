@@ -34,7 +34,7 @@ public class RouteNode : MonoBehaviour
         }
     }
 
-    public float TransitionTime = 12.0f;
+    public float TransitionTime = 360.0f;
     public float curTime = 0;
 
     public List<RouteNode> connectedNode = new List<RouteNode>();

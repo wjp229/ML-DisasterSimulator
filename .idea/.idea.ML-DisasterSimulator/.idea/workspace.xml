@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2507bfb0-8c14-47f6-b4c1-1bb3f561fa59" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ML-DisasterSimulator/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ML-DisasterSimulator/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/ExitNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/ExitNode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/03. Prefabs/Learning Set.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/03. Prefabs/Learning Set.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ML-Agents/Timers/MainScene_MLAgents_timers.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ML-Agents/Timers/MainScene_MLAgents_timers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/01. Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/01. Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/02. Scripts/Managers/SimulatorManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/02. Scripts/Managers/SimulatorManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -14,6 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7b2a272e51214e2f91bbc4fb4f28eff8159400/ec/5cdb4f50/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02. Scripts/Escapee.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02. Scripts/LearningSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/02. Scripts/Managers/SimulatorManager.cs" root0="FORCE_HIGHLIGHTING" />

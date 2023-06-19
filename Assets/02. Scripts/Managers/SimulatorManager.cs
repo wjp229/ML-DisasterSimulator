@@ -75,28 +75,30 @@ public class SimulatorManager : MonoBehaviour
     public void StartSimulation(bool StartAutomatic)
     {
         IsSimulatorActive = true;
-        
-        // Remove All Escapees
-        int escaepeeNum = escapees.Count;
-        for (int i = 0; i < escaepeeNum; i++)
-        {
-            GameObject go = escapees[0].gameObject;
-            escapees.RemoveAt(0);
-            
-            DestroyImmediate(go);
-        }
 
         if (StartAutomatic)
         {
-            int rValue = 10;// = Random.Range(0, 10);
-            
-            AddEscapee(rValue);
-        }
-        
-        // Reset All NodeStates
-        for (int i = 0; i < escapeNodes.Count; i++)
-        {
-            escapeNodes[i].ResetNodeState();
+            // Remove All Escapees
+            int escaepeeNum = escapees.Count;
+            for (int i = 0; i < escaepeeNum; i++)
+            {
+                GameObject go = escapees[0].gameObject;
+                escapees.RemoveAt(0);
+
+                DestroyImmediate(go);
+            }
+
+            {
+                int rValue = 10; // = Random.Range(0, 10);
+
+                AddEscapee(rValue);
+            }
+
+            // Reset All NodeStates
+            for (int i = 0; i < escapeNodes.Count; i++)
+            {
+                escapeNodes[i].ResetNodeState();
+            }
         }
 
         int randomVal = Random.Range(0, escapeNodes.Count);
@@ -262,8 +264,8 @@ public class SimulatorManager : MonoBehaviour
         
         if (escapees.Count <= 0)
         {
-            // resultUI.gameObject.SetActive(true);
-            // resultUI.SetResult(_resultInfo);
+            resultUI.gameObject.SetActive(true);
+            resultUI.SetResult(_resultInfo);
 
             IsSimulatorActive = false;
             
